@@ -19,6 +19,11 @@ timezone: Europe/Istanbul
 # mastodon: "https://mastodon.social/@notoloji"   # rel="me" doğrulaması için
 # webmention: "notoloji.com"                      # webmention.io kullanıcı adı
 
+# Yorumlar (bkz. yorum-worker/). İki değer de dolu olduğunda form görünür.
+yorum:
+  worker_url: # örn. https://notoloji-yorum.<alt-alan>.workers.dev
+  turnstile_site_key:  # Cloudflare Turnstile site anahtarı (herkese açık)
+
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
@@ -59,4 +64,5 @@ exclude:
   - node_modules
   - vendor
   - scripts/
+  - yorum-worker/
   - .obsidian

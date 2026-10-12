@@ -1,0 +1,13 @@
+name = "notoloji-yorum"
+main = "src/index.js"
+compatibility_date = "2025-09-01"
+
+[vars]
+SITE_URL = "https://notoloji.com"
+ALLOWED_ORIGINS = "https://notoloji.com,https://www.notoloji.com"
+GITHUB_REPO = "notoloji/notoloji.github.io"
+GITHUB_BRANCH = "main"
+
+# Gizli değerler (depoya yazılmaz):
+#   npx wrangler secret put GITHUB_TOKEN
+#   npx wrangler secret put TURNSTILE_SECRET

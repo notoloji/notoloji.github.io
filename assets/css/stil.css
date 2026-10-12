@@ -147,3 +147,36 @@ pre code { background: none; padding: 0; }
   .liste li { flex-direction: column; gap: 0; }
   .liste time { flex-basis: auto; }
 }
+
+/* Yorumlar */
+.yorumlar { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--cizgi); }
+.yorumlar h2 { font-size: 1.3rem; margin: 0 0 1.25rem; }
+.yorumlar h2 small { color: var(--soluk); font-weight: normal; }
+.yorum-yok { color: var(--soluk); font-style: italic; }
+.yorum { border-left: 3px solid var(--cizgi); padding: 0.1rem 0 0.1rem 1rem; margin-bottom: 1.5rem; scroll-margin-top: 1rem; }
+.yorum-yanitlar { margin-top: 1rem; }
+.yorum-yanitlar .yorum { margin-bottom: 1rem; }
+.yorum-meta { margin: 0 0 0.3rem; font-family: var(--arayuz); font-size: 0.82rem; color: var(--soluk); }
+.yorum-meta strong { color: var(--murekkep); }
+.yorum-yanitla { margin-left: 0.5rem; }
+.yorum-metin { overflow-wrap: anywhere; }
+
+.yorum-formu { margin-top: 2rem; font-family: var(--arayuz); font-size: 0.95rem; }
+.yorum-formu h3 { font-family: var(--yazi); font-size: 1.15rem; margin: 0 0 0.75rem; }
+.yorum-formu label { display: block; margin-bottom: 0.9rem; color: var(--soluk); font-size: 0.85rem; }
+.yorum-formu input, .yorum-formu textarea {
+  display: block; width: 100%; margin-top: 0.3rem; padding: 0.55rem 0.7rem;
+  font: inherit; font-size: 1rem; color: var(--murekkep);
+  background: var(--kagit-koyu); border: 1px solid var(--cizgi); border-radius: 4px;
+}
+.yorum-formu input:focus, .yorum-formu textarea:focus { outline: 2px solid var(--vurgu); outline-offset: 1px; }
+.yorum-formu textarea { resize: vertical; font-family: var(--yazi); line-height: 1.5; }
+.yorum-formu .cf-turnstile { margin-bottom: 1rem; }
+.yorum-formu button {
+  font: inherit; padding: 0.55rem 1.2rem; border: 0; border-radius: 4px; cursor: pointer;
+  background: var(--vurgu); color: var(--kagit);
+}
+.yorum-formu button:disabled { opacity: 0.6; cursor: wait; }
+.yorum-bal { position: absolute; left: -9999px; }
+.yorum-durum { min-height: 1.4em; margin: 0.75rem 0 0; color: var(--murekkep); }
+.yorum-not, .yorum-yanit-bilgi { color: var(--soluk); font-size: 0.82rem; }
