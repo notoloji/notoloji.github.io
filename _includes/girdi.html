@@ -1,11 +1,15 @@
 {%- assign g = include.girdi -%}
 {%- if g.tur == "not" -%}
 <article class="girdi girdi-not h-entry">
+  <header class="not-ust">
+    <a class="u-url" href="{{ g.url | relative_url }}"><time class="dt-published" datetime="{{ g.date | date_to_xmlschema }}">{% include tarih.html tarih=g.date %}</time> ∞</a>
+  </header>
   <div class="e-content">{{ g.content }}</div>
+  {%- if g.tags.size > 0 %}
   <footer class="girdi-alt">
-    <a class="u-url" href="{{ g.url | relative_url }}"><time class="dt-published" datetime="{{ g.date | date_to_xmlschema }}">{% include tarih.html tarih=g.date %}</time></a>
     {% include etiketler.html etiketler=g.tags %}
   </footer>
+  {%- endif %}
 </article>
 {%- else -%}
 {%- assign kelime = g.content | strip_html | number_of_words -%}

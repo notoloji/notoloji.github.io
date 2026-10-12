@@ -2,13 +2,17 @@
 layout: default
 ---
 <article class="tek tek-not h-entry">
+  <header class="not-ust">
+    <a class="u-url" href="{{ page.url | relative_url }}"><time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}">{% include tarih.html tarih=page.date %}, {{ page.date | date: "%H:%M" }}</time> ∞</a>
+  </header>
   <div class="e-content">
     {{ content }}
   </div>
+  {%- if page.tags.size > 0 %}
   <footer class="girdi-alt">
-    <a class="u-url" href="{{ page.url | relative_url }}"><time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}">{% include tarih.html tarih=page.date %}, {{ page.date | date: "%H:%M" }}</time></a>
     {% include etiketler.html etiketler=page.tags %}
   </footer>
+  {%- endif %}
 </article>
 {% include komsular.html %}
 {% include yorumlar.html %}

@@ -167,3 +167,9 @@ pre code { background: none; padding: 0; }
   .liste li { flex-direction: column; gap: 0; }
   .liste time { flex-basis: auto; }
 }
+
+/* Not başı: tarih + kalıcı bağlantı */
+.not-ust { margin-bottom: 0.5rem; font-size: 0.875rem; }
+.not-ust a { color: var(--soluk); text-decoration: none; }
+.not-ust a:hover { color: var(--vurgu); text-decoration: underline 1px; }
+.tek-not .not-ust { margin-bottom: 1rem; }

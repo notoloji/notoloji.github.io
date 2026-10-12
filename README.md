@@ -17,6 +17,8 @@ Jekyll ile yapılmış, GitHub Pages'te yayınlanan statik bir blog. `main` dal�
 
 `_posts/notlar/2026-10-12-1430.md` (dosya adı: tarih + saat)
 
+Notun adresi, micro.blog'daki gibi metnin ilk beş kelimesinden üretilir: `/2026/10/12/kalemle-okumak-bir-konusmaya-donusur/`. Yayımladıktan sonra notun ilk kelimelerini değiştirirsen adres de değişir. Eski adresi korumak için ön bilgiye `slug: eski-adres` ekle.
+
 ```markdown
 ---
 date: 2026-10-12 14:30:00 +0300

@@ -55,7 +55,7 @@ defaults:
     values:
       layout: "not"
       tur: "not"
-      permalink: "/not/:year/:month/:day/:title/"
+      permalink: "/:year/:month/:day/:title/"
 
 exclude:
   - Gemfile
