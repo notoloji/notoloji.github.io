@@ -41,6 +41,16 @@ ozet: "Akışta görünecek kısa özet. Boş bırakılırsa ilk paragraf kullan
 Yazının metni.
 ```
 
+### Obsidian'dan yayın
+
+Kasadaki `Notoloji/` klasörüne yaz, özelliklere `tür: not` ya da `tür: yazı` ekle (şablonlar: `T_Notoloji Not`, `T_Notoloji Yazı`). Obsidian'daki **Notoloji'de yayınla** komutu (Shell commands eklentisi) şunu çalıştırır:
+
+```bash
+python3 scripts/yayinla.py
+```
+
+Betik klasörü siteyle eşitler: yeni ve değişen notları `_posts/` altına yazar, kasadan silineni ya da `tür`ü kaldırılanı siteden de kaldırır, `[[bağlantıları]]` ve `![[görselleri]]` dönüştürür, sonra commit edip yükler. İlk yayında nota `yayın` ve `adres` özelliklerini ekler; adres ve tarih bundan sonra sabit kalır. `--kuru` ne olacağını gösterir, hiçbir şey yazmaz.
+
 ### Kısayollar
 
 ```bash
