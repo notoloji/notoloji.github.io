@@ -1,0 +1,7 @@
+{%- assign g = include.girdi -%}
+<time datetime="{{ g.date | date_to_xmlschema }}">{% include tarih.html tarih=g.date %}</time>
+{% if g.tur == "not" -%}
+<a class="liste-not" href="{{ g.url | relative_url }}">{{ g.content | strip_html | truncatewords: 12 }}</a>
+{%- else -%}
+<a class="liste-yazi" href="{{ g.url | relative_url }}">{{ g.title }}</a>
+{%- endif -%}

@@ -1,0 +1,13 @@
+---
+layout: default
+title: Notlar
+permalink: /notlar/
+---
+<h1 class="sayfa-basligi">Notlar</h1>
+<p class="sayfa-aciklama">Kısa, başlıksız, anlık notlar.</p>
+<div class="akis">
+  {%- assign liste = site.posts | where: "tur", "not" %}
+  {%- for girdi in liste %}
+    {% include girdi.html girdi=girdi %}
+  {%- endfor %}
+</div>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="{{ site.lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- if page.tur == "not" -%}
+    {%- assign baslik = page.content | strip_html | truncatewords: 8 | append: " — " | append: site.title -%}
+  {%- elsif page.title and page.url != "/" -%}
+    {%- assign baslik = page.title | append: " — " | append: site.title -%}
+  {%- else -%}
+    {%- assign baslik = site.title | append: " — " | append: site.tagline -%}
+  {%- endif %}
+  <title>{{ baslik }}</title>
+  {% seo title=false %}
+  <link rel="stylesheet" href="{{ '/assets/css/stil.css' | relative_url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | absolute_url }}">
+  <link rel="alternate" type="application/feed+json" title="{{ site.title }}" href="{{ '/feed.json' | absolute_url }}">
+  {%- if site.mastodon %}
+  <link rel="me" href="{{ site.mastodon }}">
+  {%- endif %}
+  {%- if site.webmention %}
+  <link rel="webmention" href="https://webmention.io/{{ site.webmention }}/webmention">
+  {%- endif %}
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%232f4a7a'/><text x='16' y='23' font-family='Georgia,serif' font-size='20' text-anchor='middle' fill='%23faf8f3'>n</text></svg>">
+</head>
+<body>
+  <header class="site-ust">
+    <div class="kap">
+      <a class="site-adi" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <p class="site-alt">{{ site.tagline }}</p>
+      <nav class="menu">
+        <a href="{{ '/' | relative_url }}">Akış</a>
+        <a href="{{ '/yazilar/' | relative_url }}">Yazılar</a>
+        <a href="{{ '/notlar/' | relative_url }}">Notlar</a>
+        <a href="{{ '/etiketler/' | relative_url }}">Etiketler</a>
+        <a href="{{ '/arsiv/' | relative_url }}">Arşiv</a>
+        <a href="{{ '/hakkinda/' | relative_url }}">Hakkında</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="kap">
+    {{ content }}
+  </main>
+
+  <footer class="site-alt-bilgi">
+    <div class="kap h-card">
+      <p><a class="p-name u-url" href="{{ '/' | absolute_url }}">{{ site.author.name }}</a> · <a href="{{ '/feed.xml' | relative_url }}">RSS</a> · <a href="{{ '/feed.json' | relative_url }}">JSON Feed</a></p>
+    </div>
+  </footer>
+</body>
+</html>

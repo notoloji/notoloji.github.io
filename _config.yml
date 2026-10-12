@@ -1,0 +1,62 @@
+# =============================================
+#  Notoloji — Jekyll Konfigürasyonu
+# =============================================
+
+title: "Notoloji"
+tagline: "okuma, yazma ve not alma üzerine"
+description: "Okuma, yazma ve not alma pratikleri; defterler, kalemler ve dijital araçlar üzerine kısa notlar, uzun yazılar."
+author:
+  name: "Notoloji"
+
+url: "https://notoloji.com"
+baseurl: ""
+
+lang: tr
+locale: tr_TR
+timezone: Europe/Istanbul
+
+# İsteğe bağlı bağlantılar. Doldurulanlar sitede görünür.
+# mastodon: "https://mastodon.social/@notoloji"   # rel="me" doğrulaması için
+# webmention: "notoloji.com"                      # webmention.io kullanıcı adı
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
+paginate: 15
+paginate_path: "/sayfa/:num/"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  smart_quotes: ["apos", "apos", "quot", "quot"]
+highlighter: rouge
+
+# Notlar ve yazılar aynı akışta, farklı biçimde görünür.
+#   _posts/notlar/   → başlıksız kısa notlar
+#   _posts/yazilar/  → başlıklı uzun yazılar
+defaults:
+  - scope:
+      path: "_posts/yazilar"
+      type: "posts"
+    values:
+      layout: "yazi"
+      tur: "yazi"
+      permalink: "/:title/"
+  - scope:
+      path: "_posts/notlar"
+      type: "posts"
+    values:
+      layout: "not"
+      tur: "not"
+      permalink: "/not/:year/:month/:day/:title/"
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - vendor
+  - scripts/
+  - .obsidian

@@ -1,0 +1,13 @@
+---
+layout: default
+title: Yazılar
+permalink: /yazilar/
+---
+<h1 class="sayfa-basligi">Yazılar</h1>
+<p class="sayfa-aciklama">Uzun soluklu denemeler.</p>
+<div class="akis">
+  {%- assign liste = site.posts | where: "tur", "yazi" %}
+  {%- for girdi in liste %}
+    {% include girdi.html girdi=girdi %}
+  {%- endfor %}
+</div>

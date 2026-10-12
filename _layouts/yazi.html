@@ -1,0 +1,17 @@
+---
+layout: default
+---
+{%- assign kelime = content | strip_html | number_of_words -%}
+<article class="tek tek-yazi h-entry">
+  <header>
+    <h1 class="p-name">{{ page.title }}</h1>
+    <p class="girdi-meta"><a class="u-url" href="{{ page.url | relative_url }}"><time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}">{% include tarih.html tarih=page.date %}</time></a> · {{ kelime | divided_by: 200 | plus: 1 }} dk okuma</p>
+  </header>
+  <div class="e-content">
+    {{ content }}
+  </div>
+  <footer class="girdi-alt">
+    {% include etiketler.html etiketler=page.tags %}
+  </footer>
+</article>
+{% include komsular.html %}

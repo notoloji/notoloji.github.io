@@ -1,0 +1,8 @@
+<nav class="komsular">
+  {%- if page.previous %}
+  <a class="onceki" href="{{ page.previous.url | relative_url }}">← {% if page.previous.tur == "not" %}Önceki not{% else %}{{ page.previous.title }}{% endif %}</a>
+  {%- endif %}
+  {%- if page.next %}
+  <a class="sonraki" href="{{ page.next.url | relative_url }}">{% if page.next.tur == "not" %}Sonraki not{% else %}{{ page.next.title }}{% endif %} →</a>
+  {%- endif %}
+</nav>

@@ -1,0 +1,7 @@
+{%- if include.etiketler and include.etiketler.size > 0 -%}
+<ul class="etiketler">
+  {%- for e in include.etiketler %}
+  <li><a class="p-category" href="{{ '/etiketler/' | relative_url }}#{{ e | slugify: 'latin' }}">#{{ e }}</a></li>
+  {%- endfor %}
+</ul>
+{%- endif -%}

@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<article class="tek tek-not h-entry">
+  <div class="e-content">
+    {{ content }}
+  </div>
+  <footer class="girdi-alt">
+    <a class="u-url" href="{{ page.url | relative_url }}"><time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}">{% include tarih.html tarih=page.date %}, {{ page.date | date: "%H:%M" }}</time></a>
+    {% include etiketler.html etiketler=page.tags %}
+  </footer>
+</article>
+{% include komsular.html %}

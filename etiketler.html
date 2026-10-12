@@ -1,0 +1,22 @@
+---
+layout: default
+title: Etiketler
+permalink: /etiketler/
+---
+<h1 class="sayfa-basligi">Etiketler</h1>
+{%- assign etiketler = site.tags | sort %}
+<p class="etiket-bulutu">
+  {%- for e in etiketler %}
+  <a href="#{{ e[0] | slugify: 'latin' }}">#{{ e[0] }} <small>{{ e[1].size }}</small></a>
+  {%- endfor %}
+</p>
+{%- for e in etiketler %}
+<section class="etiket-bolum" id="{{ e[0] | slugify: 'latin' }}">
+  <h2>#{{ e[0] }}</h2>
+  <ul class="liste">
+    {%- for g in e[1] %}
+    <li>{% include liste-ogesi.html girdi=g %}</li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endfor %}

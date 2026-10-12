@@ -1,0 +1,18 @@
+{%- assign g = include.girdi -%}
+{%- if g.tur == "not" -%}
+<article class="girdi girdi-not h-entry">
+  <div class="e-content">{{ g.content }}</div>
+  <footer class="girdi-alt">
+    <a class="u-url" href="{{ g.url | relative_url }}"><time class="dt-published" datetime="{{ g.date | date_to_xmlschema }}">{% include tarih.html tarih=g.date %}</time></a>
+    {% include etiketler.html etiketler=g.tags %}
+  </footer>
+</article>
+{%- else -%}
+{%- assign kelime = g.content | strip_html | number_of_words -%}
+<article class="girdi girdi-yazi h-entry">
+  <h2 class="p-name"><a class="u-url" href="{{ g.url | relative_url }}">{{ g.title }}</a></h2>
+  <p class="girdi-meta"><time class="dt-published" datetime="{{ g.date | date_to_xmlschema }}">{% include tarih.html tarih=g.date %}</time> · {{ kelime | divided_by: 200 | plus: 1 }} dk okuma</p>
+  <p class="p-summary">{{ g.ozet | default: g.excerpt | strip_html | truncatewords: 45 }}</p>
+  <a class="devami" href="{{ g.url | relative_url }}">Yazının devamı →</a>
+</article>
+{%- endif -%}

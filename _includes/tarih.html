@@ -1,0 +1,2 @@
+{%- assign _ay = include.tarih | date: "%-m" | minus: 1 -%}
+{{ include.tarih | date: "%-d" }} {{ site.data.tr.aylar[_ay] }} {{ include.tarih | date: "%Y" }}
