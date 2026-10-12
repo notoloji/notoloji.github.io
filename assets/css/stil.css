@@ -8,7 +8,7 @@
   --cizgi: #e4e4e4;
   --vurgu: #1f4e79;
   --vurgu-cizgi: rgba(31, 78, 121, 0.35);
-  --yazi: "Source Sans 3", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --yazi: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   --kod: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
 
@@ -21,8 +21,8 @@ body {
   background: var(--zemin);
   color: var(--metin);
   font-family: var(--yazi);
-  font-size: 1.0625rem;
-  line-height: 1.65;
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
 .kap {
