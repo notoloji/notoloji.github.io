@@ -36,6 +36,7 @@ KLASOR = os.environ.get("NOTOLOJI_KLASOR", "Notoloji")
 REPO = Path(__file__).resolve().parent.parent
 GORSEL_DIZIN = REPO / "assets" / "img" / "obsidian"
 GORSEL_URL = "/assets/img/obsidian/"
+SITE = "https://notoloji.com"
 SAAT_DILIMI = "+0300"
 KELIME = 5
 
@@ -305,10 +306,13 @@ def main():
     silinecek = [y for y in eski if y not in ciktilar]
     degisen = [y for y, m in ciktilar.items() if not y.exists() or y.read_text(encoding="utf-8") != m]
 
+    hedefler = {g.hedef: g for g in girdiler}
     for y in degisen:
-        print(("Güncellenecek: " if y.exists() else "Yeni: ") + str(y.relative_to(REPO)))
+        g = hedefler[y]
+        ad = g.baslik if g.tur == "yazi" else g.yol.stem
+        print(("Güncel: " if y.exists() else "Yeni: ") + f"{ad}\n  {SITE}{g.url}")
     for y in silinecek:
-        print("Kaldırılacak: " + str(y.relative_to(REPO)))
+        print(f"Kaldırıldı: {eski[y]}")
 
     if kuru:
         print(f"\n{len(girdiler)} girdi bulundu. (kuru çalıştırma, hiçbir şey yazılmadı)")
@@ -340,7 +344,7 @@ def main():
     ozet = f"{len(degisen)} yeni/güncel, {len(silinecek)} kaldırılan"
     git("commit", "-q", "-m", f"Obsidian'dan yayın: {ozet}")
     git("push", "-q")
-    print(f"Yayımlandı ({ozet}). Site yaklaşık bir dakika içinde güncellenir.")
+    print(f"\nYüklendi ({ozet}). Site yaklaşık bir dakika içinde güncellenir.")
 
 
 if __name__ == "__main__":
